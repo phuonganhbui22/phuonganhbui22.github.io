@@ -1,0 +1,21 @@
+.menu {
+    width: 200px;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    margin-bottom: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu li::before {
+    content: "• ";
+}
+
+.menu li:hover {
+    background: yellow;
+}
