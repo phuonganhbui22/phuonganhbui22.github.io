@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Circle Calculator</title>
+    <script language="javascript">
+        function calculateCircle() {
+            var r = parseFloat(document.f.radius.value);
+            const PI = 3.14;
+
+            if (isNaN(r) || r <= 0) {
+                alert("Please enter a valid radius!");
+                return;
+            }
+
+            // Chu vi = 2 * PI * r
+            var perimeter = 2 * PI * r;
+            // Diện tích = PI * r * r
+            var area = PI * Math.pow(r, 2);
+
+            document.f.perimeter.value = perimeter.toFixed(2);
+            document.f.area.value = area.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <form name="f">
+        <table border="1" align="center" cellpadding="5">
+            <tr><th colspan="2">CIRCLE CALCULATOR ($\pi = 3.14$)</th></tr>
+            <tr>
+                <td>Radius:</td>
+                <td><input type="text" name="radius"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Calculate" onclick="calculateCircle()">
+                </td>
+            </tr>
+            <tr>
+                <td>Perimeter:</td>
+                <td><input type="text" name="perimeter" readonly></td>
+            </tr>
+            <tr>
+                <td>Area:</td>
+                <td><input type="text" name="area" readonly></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

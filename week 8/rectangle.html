@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rectangle Calculator</title>
+    <script language="javascript">
+        function calculate() {
+            var w = parseFloat(document.f.width.value);
+            var h = parseFloat(document.f.height.value);
+
+            if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) {
+                alert("Please enter valid positive numbers for width and height!");
+                return;
+            }
+
+            var perimeter = (w + h) * 2;
+            var area = w * h;
+
+            document.f.perimeter.value = perimeter;
+            document.f.area.value = area;
+        }
+    </script>
+</head>
+<body>
+    <form name="f">
+        <table border="1" align="center" cellpadding="5">
+            <tr><th colspan="2">RECTANGLE CALCULATOR</th></tr>
+            <tr>
+                <td>Width:</td>
+                <td><input type="text" name="width"></td>
+            </tr>
+            <tr>
+                <td>Height:</td>
+                <td><input type="text" name="height"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Calculate" onclick="calculate()">
+                </td>
+            </tr>
+            <tr>
+                <td>Perimeter:</td>
+                <td><input type="text" name="perimeter" readonly></td>
+            </tr>
+            <tr>
+                <td>Area:</td>
+                <td><input type="text" name="area" readonly></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
