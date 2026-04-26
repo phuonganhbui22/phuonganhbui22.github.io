@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator - Regular Expression & Eval</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+        .calc-container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; background: #f9f9f9; }
+        .row { margin-bottom: 10px; }
+        label { display: inline-block; width: 100px; }
+        input[type="text"] { width: 150px; padding: 5px; }
+        button { width: 100%; padding: 10px; cursor: pointer; background: #28a745; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #218838; }
+        #result { background: #e9ecef; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="calc-container">
+    <h3>Simple Calculator</h3>
+    
+    <div class="row">
+        <label>Number 1:</label>
+        <input type="text" id="num1" placeholder="Nhập số thứ nhất">
+    </div>
+
+    <div class="row">
+        <label>Operator:</label>
+        <input type="text" id="opr" placeholder="+, -, *, /, %">
+    </div>
+
+    <div class="row">
+        <label>Number 2:</label>
+        <input type="text" id="num2" placeholder="Nhập số thứ hai">
+    </div>
+
+    <div class="row">
+        <label>Result:</label>
+        <input type="text" id="result" readonly>
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+</div>
+
+<script>
+    function calculate() {
+        // 1. Lấy giá trị từ input
+        const n1 = document.getElementById('num1').value.trim();
+        const n2 = document.getElementById('num2').value.trim();
+        const op = document.getElementById('opr').value.trim();
+        const resultField = document.getElementById('result');
+
+        // 2. Định nghĩa Regular Expression
+        // Kiểm tra số (có thể là số nguyên hoặc số thập phân)
+        const numReg = /^-?\d*\.?\d+$/;
+        // Kiểm tra toán tử (+, -, *, /, %)
+        const opReg = /^[+\-*/%]$/;
+
+        // 3. Kiểm tra dữ liệu đầu vào (Validation)
+        if (!numReg.test(n1) || !numReg.test(n2)) {
+            alert("Vui lòng nhập số hợp lệ vào ô Number 1 và Number 2!");
+            return;
+        }
+
+        if (!opReg.test(op)) {
+            alert("Toán tử không hợp lệ! Chỉ chấp nhận +, -, *, /, %");
+            return;
+        }
+
+        // 4. Sử dụng hàm eval() để tính toán
+        try {
+            // Tạo chuỗi biểu thức, ví dụ: "10 + 5"
+            const expression = n1 + " " + op + " " + n2;
+            const res = eval(expression);
+            
+            // Hiển thị kết quả
+            resultField.value = res;
+        } catch (error) {
+            alert("Có lỗi xảy ra khi tính toán!");
+        }
+    }
+</script>
+
+</body>
+</html>
