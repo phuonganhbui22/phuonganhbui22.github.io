@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2 - Kiểm tra chẵn lẻ</title>
+    <script language="javascript">
+        var txta = prompt("Enter any integer");
+
+        // Kiểm tra đầu vào có phải là số không
+        if (txta == null || txta == "" || isNaN(txta)) {
+            document.write("<font color='red'>You must enter a number</font>");
+        } 
+        else {
+            // Ép kiểu về số nguyên để kiểm tra phép chia lấy dư
+            var num = parseInt(txta);
+            
+            if (num % 2 == 0) {
+                // Nếu là số chẵn: In đậm, màu xanh lá
+                document.write("<font color='green'><b>" + num + " is an even number</b></font>");
+            } 
+            else {
+                // Nếu là số lẻ: In nghiêng, màu xanh dương
+                document.write("<font color='blue'><i>" + num + " is an odd number</i></font>");
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
