@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .form-container {
+            width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        h3 {
+            color: maroon;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #999;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 5px;
+            vertical-align: middle;
+        }
+        .label-cell {
+            width: 150px;
+            color: #336699;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"], select {
+            padding: 3px;
+            border: 1px solid #999;
+        }
+        .register-btn {
+            background: linear-gradient(to bottom, #ff3300, #990000);
+            color: white;
+            border: 1px solid #660000;
+            padding: 5px 20px;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h3>Registration</h3>
+    <hr>
+    
+    <form action="#" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td class="label-cell">Username:</td>
+                <td colspan="3"><input type="text" name="txtUsername" size="30"></td>
+            </tr>
+            <tr>
+                <td class="label-cell">Password:</td>
+                <td colspan="3"><input type="password" name="txtPass" size="30"></td>
+            </tr>
+            <tr>
+                <td class="label-cell">Re-type Password:</td>
+                <td colspan="3"><input type="password" name="txtRePass" size="30"></td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">Birthday:</td>
+                <td colspan="3">
+                    <select name="month">
+                        <option value="">[select one]</option>
+                        <option value="1">January</option>
+                        </select> , 
+                    <input type="text" name="day" size="5"> , 
+                    <input type="text" name="year" size="8"> 
+                    <span style="color: #666;">(Month Day, Year)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">Images:</td>
+                <td colspan="3"><input type="file" name="fileImage"></td>
+            </tr>
+
+            <tr><td colspan="4"><hr></td></tr>
+
+            <tr>
+                <td class="label-cell">First Name:</td>
+                <td><input type="text" name="txtFirst" size="15"></td>
+                <td class="label-cell" style="width: 80px;">Last Name:</td>
+                <td><input type="text" name="txtLast" size="15"></td>
+            </tr>
+
+            <tr><td colspan="4"><hr></td></tr>
+
+            <tr>
+                <td class="label-cell" style="vertical-align: top;">Interests (optional):</td>
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td><input type="checkbox" name="chk1"> Entertainment</td>
+                            <td><input type="checkbox" name="chk2"> Business</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="chk3"> Home & Family</td>
+                            <td><input type="checkbox" name="chk4"> Computers & Technology</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="chk5"> Health</td>
+                            <td><input type="checkbox" name="chk6"> Personal Finance</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="chk7"> Music</td>
+                            <td><input type="checkbox" name="chk8"> Small Business</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <button type="submit" class="register-btn">REGISTER</button>
+    </form>
+</div>
+
+</body>
+</html>
