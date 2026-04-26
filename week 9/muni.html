@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-width: 300px;
+        }
+        .result-box {
+            margin-top: 15px;
+            border: 1px solid #999;
+            padding: 10px;
+            display: none; /* Ẩn đi khi chưa có dữ liệu */
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+        h2 {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Multiplication Table</h2>
+    
+    <p>
+        Which multiplication table that you want to display? 
+        <input type="text" id="numberInput" oninput="generateTable()">
+    </p>
+
+    <div id="errorMessage" class="error">You must enter a number</div>
+
+    <div id="resultContainer" class="result-box">
+        <strong id="tableTitle"></strong><br>
+        <div id="tableContent"></div>
+    </div>
+
+    <script>
+        function generateTable() {
+            const input = document.getElementById('numberInput').value;
+            const error = document.getElementById('errorMessage');
+            const resultBox = document.getElementById('resultContainer');
+            const tableContent = document.getElementById('tableContent');
+            const tableTitle = document.getElementById('tableTitle');
+
+            // Xóa nội dung cũ
+            tableContent.innerHTML = "";
+            
+            // Kiểm tra nếu input trống
+            if (input.trim() === "") {
+                error.style.display = "none";
+                resultBox.style.display = "none";
+                return;
+            }
+
+            // Kiểm tra nếu không phải là số
+            if (isNaN(input)) {
+                error.style.display = "block";
+                resultBox.style.display = "none";
+            } else {
+                // Nếu là số hợp lệ
+                error.style.display = "none";
+                resultBox.style.display = "block";
+                
+                const n = parseInt(input);
+                tableTitle.innerText = "Multiplication table " + n + ":";
+                
+                let content = "";
+                for (let i = 1; i <= 10; i++) {
+                    content += n + " x " + i + " = " + (n * i) + "<br>";
+                }
+                tableContent.innerHTML = content;
+            }
+        }
+    </script>
+
+</body>
+</html>
